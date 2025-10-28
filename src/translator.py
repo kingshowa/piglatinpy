@@ -2,7 +2,7 @@ from src.error import PigLatinError
 
 
 class PigLatinTranslator:
-
+    VOWELS = 'aeiou'
     def __init__(self, phrase: str):
         """
         Creates a pig latin translator given a phrase.
@@ -24,4 +24,9 @@ class PigLatinTranslator:
         Returns the Pig Latin translation of the phrase.
         :return: the translation.
         """
-        return self.phrase  # --- IGNORE ---
+        if self.phrase == "":
+            return "nil"
+
+        first_letter = self.phrase[0].lower()
+        if first_letter in self.VOWELS:
+            return self.phrase + "nay"  # --- IGNORE ---
